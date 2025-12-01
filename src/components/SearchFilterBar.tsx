@@ -1,6 +1,5 @@
 import React from 'react';
-import { Input } from './Input';
-import { Select } from './Select';
+import { Input, Select } from './shared';
 import { FilterOptions } from '../types';
 import { capitalizeFirst } from '../utils/helpers';
 import './SearchFilterBar.css';

@@ -15,8 +15,7 @@ import { useAuth } from '../hooks/useAuth';
 import { Issue, IssueStatus } from '../types';
 import { SearchFilterBar } from '../components/SearchFilterBar';
 import { RecentlyAccessedSidebar } from '../components/RecentlyAccessedSidebar';
-import { Pagination } from '../components/Pagination';
-import { Button } from '../components/Button';
+import { Button, Pagination } from '../components/shared';
 import { BoardSkeleton } from '../components/BoardSkeleton';
 import { BoardColumn } from '../components/BoardColumn';
 import { DraggableIssue } from '../components/DraggableIssue';
@@ -72,7 +71,7 @@ export const BoardPage = () => {
   // Show undo toast
   useEffect(() => {
     if (undoableAction && timeLeft) {
-      toast.info(
+      const toastId = toast.info(
         <div className='undo-toast'>
           <span>Issue moved</span>
           <Button variant='secondary' size='small' onClick={handleUndo}>
@@ -88,6 +87,7 @@ export const BoardPage = () => {
           draggable: false,
         }
       );
+      return () => toast.dismiss(toastId);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [undoableAction?.timestamp]);
@@ -170,11 +170,28 @@ export const BoardPage = () => {
 
   const activeIssue = activeId ? issues.find((i) => i.id === activeId) : null;
 
-  const hasActiveFilters = filters.search || filters.assignee || filters.severity !== null;
+  const hasActiveFilters = useMemo(() => filters.search || filters.assignee || filters.severity !== null, [filters]);
 
   const handleResetFilters = () => {
     setFilters({ search: '', assignee: '', severity: null });
   };
+
+  const toggleSidebar = () => {
+    if (showSidebar) {
+      setIsClosing(true);
+      setTimeout(() => {
+        setShowSidebar(false);
+        setIsClosing(false);
+      }, 300);
+    } else {
+      setShowSidebar(true);
+    }
+  };
+
+  const maxTotalPages = useMemo(
+    () => Math.max(...BOARD_COLUMNS.map((s) => paginatedIssues[s].totalPages)),
+    [paginatedIssues]
+  );
 
   return (
     <div className='board-page'>
@@ -192,21 +209,7 @@ export const BoardPage = () => {
                 Reset Filters
               </Button>
             )}
-            <Button
-              variant='ghost'
-              size='small'
-              onClick={() => {
-                if (showSidebar) {
-                  setIsClosing(true);
-                  setTimeout(() => {
-                    setShowSidebar(false);
-                    setIsClosing(false);
-                  }, 300);
-                } else {
-                  setShowSidebar(true);
-                }
-              }}
-            >
+            <Button variant='ghost' size='small' onClick={toggleSidebar}>
               {showSidebar ? 'Hide' : 'Show'} Recent
             </Button>
           </div>
@@ -238,11 +241,7 @@ export const BoardPage = () => {
               <DragOverlay>{activeIssue && <IssueCard issue={activeIssue} isDragging />}</DragOverlay>
             </DndContext>
 
-            <Pagination
-              currentPage={currentPage}
-              totalPages={Math.max(...BOARD_COLUMNS.map((s) => paginatedIssues[s].totalPages))}
-              onPageChange={setCurrentPage}
-            />
+            <Pagination currentPage={currentPage} totalPages={maxTotalPages} onPageChange={setCurrentPage} />
           </>
         )}
       </div>

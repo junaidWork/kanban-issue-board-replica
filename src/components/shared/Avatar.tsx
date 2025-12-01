@@ -1,5 +1,5 @@
 import React from 'react';
-import { getUserInitials } from '../utils/helpers';
+import { getUserInitials } from '../../utils/helpers';
 import './Avatar.css';
 
 interface AvatarProps {

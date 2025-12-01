@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../components/Button';
+import { Button } from '../components/shared';
 import './NotFoundPage.css';
 
 export const NotFoundPage: React.FC = () => {

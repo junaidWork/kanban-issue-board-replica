@@ -1,8 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Issue } from '../types';
-import { Card } from './Card';
-import { Button } from './Button';
+import { Button, Card } from './shared';
 import dayjs from 'dayjs';
 import './RecentlyAccessedSidebar.css';
 

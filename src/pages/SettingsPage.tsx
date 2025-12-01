@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { useStore } from '../store/useStore';
 import { useAuth } from '../hooks/useAuth';
-import { Card } from '../components/Card';
-import { Button } from '../components/Button';
-import { Select } from '../components/Select';
+import { Button, Card, Select } from '../components/shared';
 import { availableUsers, switchUser } from '../constants/currentUser';
 import { getUserInitials } from '../utils/helpers';
 import { POLLING_OPTIONS } from '../constants/app';

@@ -1,8 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Issue } from '../types';
-import { Card } from './Card';
-import { Badge } from './Badge';
+import { Badge, Card } from './shared';
 import { getPriorityVariant, getSeverityColor, getUserInitials } from '../utils/helpers';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
