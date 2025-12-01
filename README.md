@@ -1,6 +1,22 @@
 # Kanban Issue Board
 
-A Kanban-style issue board built with React, TypeScript, and modern web technologies. Features drag-and-drop, real-time updates, role-based access control, and an elegant dark mode.
+🚀 **Live Demo:** [https://kanban-issue-board-replica.vercel.app/board](https://kanban-issue-board-replica.vercel.app/board)
+
+A Kanban-style issue board built with React, TypeScript, and modern web technologies. Features drag-and-drop, real-time updates, role-based access control, pagination, setting page and dark mode.
+
+## 📸 Screenshots
+
+### Board View (Light Mode)
+![Kanban Board Light](screenshots/board-page-light.png)
+
+### Board View (Dark Mode)
+![Kanban Board Dark](screenshots/board-page-dark.png)
+
+### Issue Details
+![Issue Detail Page](screenshots/detail-page.png)
+
+### Settings Page
+![Settings](screenshots/settings-page.png)
 
 ## 📋 About The Project
 
@@ -15,9 +31,10 @@ This is a Jira-inspired issue tracking application that allows teams to manage t
 - **Recently Accessed** - Quick access to last 5 viewed issues
 - **Role-Based Access** - Admin (full edit) vs Contributor (read-only)
 - **Real-Time Sync** - Auto-refresh every 10 seconds (configurable)
-- **Dark Mode** - Elegant dark theme with persistence
+- **Dark Mode** - Dark theme with persistence
 - **Responsive Design** - Works on mobile, tablet, and desktop
-- **30+ Unit Tests** - Comprehensive test coverage
+- **Pagination** - Add Pagination
+- **Unit Tests** - Comprehensive test coverage
 
 ## 🛠️ Technologies & Libraries
 
@@ -48,8 +65,8 @@ This is a Jira-inspired issue tracking application that allows teams to manage t
 
 ```bash
 # 1. Clone the repository
-git clone <your-repo-url>
-cd react-case-study
+git clone https://github.com/junaidWork/kanban-issue-board-replica.git
+cd kanban-issue-board-replica
 
 # 2. Use the correct Node version (if using nvm)
 nvm use
@@ -120,4 +137,4 @@ Priority Score = (severity × 10) + (days since created × -1) + userDefinedRank
 - ✅ Pagination (20 items per page)
 - ✅ Custom hooks (usePolling, useAuth, useRecentlyAccessed, useUndoTimer)
 - ✅ Dark mode with localStorage persistence
-- ✅ Comprehensive unit tests (30 tests, all passing)
+- ✅ Comprehensive unit tests (all passing)
