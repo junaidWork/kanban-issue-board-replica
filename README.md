@@ -1,173 +1,123 @@
-# 🧠 Issue Board – React Engineering Assessment
+# Kanban Issue Board
 
-Welcome! This is a React case study designed to assess your skills in frontend architecture, state management, component design, and algorithmic
-thinking.
+A Kanban-style issue board built with React, TypeScript, and modern web technologies. Features drag-and-drop, real-time updates, role-based access control, and an elegant dark mode.
 
-You’ll build a **Kanban-style issue board** with interactive functionality, sorting logic, and user access control — similar to a simplified Jira or
-GitHub Projects board.
+## 📋 About The Project
 
----
+This is a Jira-inspired issue tracking application that allows teams to manage tasks across three workflow stages: **Backlog**, **In Progress**, and **Done**. The application features intelligent priority sorting, optimistic UI updates, and comprehensive user permissions.
 
-## 🎯 Objective
+## ✨ Key Features
 
-Build a **React application** that lets users:
+- **Kanban Board** - Drag & drop issues between columns
+- **Search & Filter** - Live search by title/tags, filter by assignee/severity
+- **Smart Sorting** - Automatic priority scoring algorithm
+- **Undo Actions** - 5-second undo window for all changes
+- **Recently Accessed** - Quick access to last 5 viewed issues
+- **Role-Based Access** - Admin (full edit) vs Contributor (read-only)
+- **Real-Time Sync** - Auto-refresh every 10 seconds (configurable)
+- **Dark Mode** - Elegant dark theme with persistence
+- **Responsive Design** - Works on mobile, tablet, and desktop
+- **30+ Unit Tests** - Comprehensive test coverage
 
-- View, search, and filter a list of issues
-- Drag and drop issues between columns
-- Automatically **sort issues** using a custom priority score
-- **Undo** issue updates with rollback behavior
-- Track and display **recently accessed issues**
-- Apply **role-based permissions**
-- Handle real-time updates (via polling or simulated sockets)
+## 🛠️ Technologies & Libraries
 
----
+### Core Stack
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **React Router v7** - Client-side routing
+- **Zustand** - State management
 
-## 🛠️ Tech Stack
+### UI & Features
+- **@dnd-kit/core** - Drag and drop functionality
+- **React Toastify** - Toast notifications
+- **Day.js** - Date manipulation
+- **CSS3** - Custom styling with dark mode
 
-- React + TypeScript
-- React Router
-- Mock API via JSON
-- LocalStorage
-- (Optional) Drag & Drop: `@dnd-kit/core` or equivalent
-
----
-
-## ✅ Functional Requirements
-
-### 1. **Board View (`/board`)**
-
-- Display issues in 3 columns: `Backlog`, `In Progress`, `Done`
-- Support drag & drop or button-based movement between columns
-- Optimistically update UI (simulate async save with 500ms delay)
-- Allow undo within 5 seconds (use a toast or button)
-
-### 2. **Search, Filter & Sort**
-
-- Live search by title or tags
-- Filter by assignee or severity
-- Sort issues **by a priority score**, computed as:
-  ```
-  score = severity * 10 + (daysSinceCreated * -1) + userDefinedRank
-  ```
-    - Highest score appears first
-    - If scores match, newer issues should appear higher
-
-### 3. **Recently Accessed Sidebar**
-
-- Track last 5 visited issues (clicks)
-- Store in `localStorage`
-- Display in a sidebar or modal
-
-### 4. **Issue Detail Page (`/issue/:id`)**
-
-- Show full issue info
-- Include a “Mark as Resolved” action
-- Clicking this updates status to `Done` and triggers UI update
-
-### 5. **Role-Based Access**
-
-- Use provided mock user:
-  ```ts
-  const currentUser = { name: "Alice", role: "admin" } // or "contributor"
-  ```
-- Only `admin` users can:
-    - Move issues between columns
-    - Update priority/status
-    - Mark as resolved
-- `contributor` users see a read-only view
-
-### 6. **Polling / Real-Time**
-
-- Poll issue list every 10 seconds OR simulate live updates
-- Show last sync time in the UI
-
----
-
-## ⚙️ Starter Code
-
-This repo includes:
-
-- All page routes wired with `React Router`
-- Sample issues in `src/data/issues.json`
-- Mock API with delay + simulated error in `src/utils/api.ts`
-- User context in `src/constants/currentUser.ts`
-- Navigation bar
-- TypeScript types in `src/types.ts`
-
-You're expected to build the real functionality and logic on top of this foundation.
-
----
-
-## ✨ Bonus (If You Have Time)
-
-- Pagination or virtual scroll
-- Custom hook for polling
-- Dark mode toggle
-- Unit test for sorting algorithm or update logic
-
----
-
-## 🧪 Evaluation Criteria
-
-| Area              | What We’re Looking For                                    |
-|-------------------|-----------------------------------------------------------|
-| Code Quality      | Clear, idiomatic React code                               |
-| Component Design  | Reusable, maintainable architecture                       |
-| Algorithmic Logic | Priority score, sort stability, undo rollback             |
-| State Management  | Clean handling of async and optimistic updates            |
-| Access Control    | Role-based UI behavior                                    |
-| UX Decisions      | Error handling, undo feedback, loading states             |
-| Performance       | Avoiding unnecessary re-renders, memoization where needed |
-| Testing (Bonus)   | Tests for critical logic                                  |
-
----
-
-## ⏱️ Time Limit
-
-This challenge is designed for **~90 minutes**. If you need a bit more time for polish, that’s okay — just let us know.
-
----
-
-## 🔒 Dependency Rules
-
-You may only use the dependencies already included in the project.
-
-> ❗ No additional libraries or external packages are allowed — **except** for state management libraries such as:
-> - [Zustand](https://github.com/pmndrs/zustand)
-> - [Jotai](https://github.com/pmndrs/jotai)
-> - [Recoil](https://recoiljs.org/)
-> - or similar minimal state libraries
-
-Please do **not** add other UI kits, form libraries, animation frameworks, etc.
-
-The goal is to evaluate your architecture, state design, and React fundamentals — not your ability to wire up third-party tools.
-
-
----
-
-## 🔒 Dependency Rules
-
-You may only use the dependencies already included in the project.
-
-> ❗ No additional libraries or external packages are allowed — **except** for state management libraries such as:
-> - [Zustand](https://github.com/pmndrs/zustand)
-> - [Jotai](https://github.com/pmndrs/jotai)
-> - [Recoil](https://recoiljs.org/)
-> - or similar minimal state libraries
-
-Please do **not** add other UI kits, form libraries, animation frameworks, etc.
-
-The goal is to evaluate your architecture, state design, and React fundamentals — not your ability to wire up third-party tools.
+### Testing
+- **Jest** - Test runner
+- **React Testing Library** - Component testing
 
 ## 🚀 Getting Started
 
+### Prerequisites
+
+- **Node.js 18+** (recommended: v22.14.0)
+- **npm 9+**
+
+### Installation & Setup
+
 ```bash
+# 1. Clone the repository
+git clone <your-repo-url>
+cd react-case-study
+
+# 2. Use the correct Node version (if using nvm)
+nvm use
+
+# 3. Install dependencies
 npm install
+
+# 4. Start the development server
 npm start
+
+# 5. Run Test cases
+npm run test
 ```
 
-You’re good to go! Let us know when it’s ready for review.
+The application will open at [http://localhost:3000](http://localhost:3000)
 
----
+### Available Commands
 
-Good luck — and have fun building!
+```bash
+npm start          # Start development server
+npm test           # Run tests in watch mode
+npm run build      # Create production build
+npm test -- --coverage  # Run tests with coverage report
+```
+
+## 📖 What We Implemented
+
+### 1. **Board View** (`/board`)
+- Three-column Kanban layout (Backlog, In Progress, Done)
+- Drag & drop with visual feedback
+- Optimistic updates (500ms simulated API delay)
+- Undo functionality with countdown timer
+- Real-time polling with last sync timestamp
+
+### 2. **Priority Sorting Algorithm**
+Issues are automatically sorted using this formula:
+```
+Priority Score = (severity × 10) + (days since created × -1) + userDefinedRank
+```
+- Higher scores appear first
+- Newer issues break ties
+- Recalculates on every update
+
+### 3. **Search & Filtering**
+- Live search by issue title or tags
+- Filter by assignee (dropdown)
+- Filter by severity level (1-3)
+- Filters work together and persist across navigation
+
+### 4. **Issue Detail Page** (`/issue/:id`)
+- Full issue information display
+- "Mark as Resolved" button (admin only)
+- Assignee, priority, severity, tags, and timestamps
+- Automatic tracking in "Recently Accessed"
+
+### 5. **Role-Based Permissions**
+- **Admin** (Alice): Can edit, drag, and resolve issues
+- **Contributor** (Bob): Read-only access with clear indicators
+- Switch users in Settings page
+
+### 6. **Settings Page** (`/settings`)
+- User profile with role badge
+- Polling interval configuration (5s - 2min)
+- Dark mode toggle
+- User switching for testing permissions
+
+### 7. **Bonus Features**
+- ✅ Pagination (20 items per page)
+- ✅ Custom hooks (usePolling, useAuth, useRecentlyAccessed, useUndoTimer)
+- ✅ Dark mode with localStorage persistence
+- ✅ Comprehensive unit tests (30 tests, all passing)

@@ -5,9 +5,11 @@
     "status": "Backlog",
     "priority": "high",
     "severity": 3,
-    "createdAt": "2025-07-09T10:00:00Z",
+    "createdAt": "2025-11-20T10:00:00Z",
     "assignee": "alice",
-    "tags": ["auth", "bug"]
+    "tags": ["auth", "bug"],
+    "userDefinedRank": 5,
+    "description": "Users are unable to login with their credentials. The authentication system is returning 401 errors even with valid credentials."
   },
   {
     "id": "2",
@@ -15,9 +17,11 @@
     "status": "In Progress",
     "priority": "medium",
     "severity": 2,
-    "createdAt": "2025-07-08T12:00:00Z",
+    "createdAt": "2025-11-22T12:00:00Z",
     "assignee": "bob",
-    "tags": ["performance"]
+    "tags": ["performance"],
+    "userDefinedRank": 3,
+    "description": "Dashboard takes too long to load. We need to optimize the API calls and implement lazy loading."
   },
   {
     "id": "3",
@@ -25,8 +29,94 @@
     "status": "Done",
     "priority": "low",
     "severity": 1,
-    "createdAt": "2025-07-07T09:30:00Z",
+    "createdAt": "2025-11-25T09:30:00Z",
     "assignee": "carol",
-    "tags": ["ui"]
+    "tags": ["ui"],
+    "userDefinedRank": 1,
+    "description": "Implement a dark mode theme toggle for better user experience in low-light environments."
+  },
+  {
+    "id": "4",
+    "title": "Refactor API endpoints",
+    "status": "Backlog",
+    "priority": "high",
+    "severity": 3,
+    "createdAt": "2025-11-18T14:20:00Z",
+    "assignee": "alice",
+    "tags": ["backend", "refactor"],
+    "userDefinedRank": 8,
+    "description": "API endpoints need to be refactored for better maintainability and performance."
+  },
+  {
+    "id": "5",
+    "title": "Update user profile page",
+    "status": "In Progress",
+    "priority": "medium",
+    "severity": 2,
+    "createdAt": "2025-11-23T11:15:00Z",
+    "assignee": "bob",
+    "tags": ["ui", "profile"],
+    "userDefinedRank": 4,
+    "description": "User profile page needs a redesign with additional fields for better user management."
+  },
+  {
+    "id": "6",
+    "title": "Fix memory leak in analytics",
+    "status": "Backlog",
+    "priority": "high",
+    "severity": 3,
+    "createdAt": "2025-11-21T16:45:00Z",
+    "assignee": "carol",
+    "tags": ["bug", "performance"],
+    "userDefinedRank": 7,
+    "description": "Analytics module has a memory leak that causes the application to slow down over time."
+  },
+  {
+    "id": "7",
+    "title": "Add email notifications",
+    "status": "Backlog",
+    "priority": "low",
+    "severity": 1,
+    "createdAt": "2025-11-26T08:00:00Z",
+    "assignee": "alice",
+    "tags": ["feature"],
+    "userDefinedRank": 2,
+    "description": "Implement email notifications for important system events and user actions."
+  },
+  {
+    "id": "8",
+    "title": "Optimize database queries",
+    "status": "In Progress",
+    "priority": "high",
+    "severity": 2,
+    "createdAt": "2025-11-19T13:30:00Z",
+    "assignee": "bob",
+    "tags": ["backend", "performance"],
+    "userDefinedRank": 6,
+    "description": "Database queries are slow and need optimization with proper indexing and query restructuring."
+  },
+  {
+    "id": "9",
+    "title": "Create onboarding tutorial",
+    "status": "Done",
+    "priority": "medium",
+    "severity": 1,
+    "createdAt": "2025-11-24T10:20:00Z",
+    "assignee": "carol",
+    "tags": ["ui", "documentation"],
+    "userDefinedRank": 2,
+    "description": "New users need a guided tutorial to understand the platform features."
+  },
+  {
+    "id": "10",
+    "title": "Implement two-factor authentication",
+    "status": "Backlog",
+    "priority": "high",
+    "severity": 3,
+    "createdAt": "2025-11-17T09:00:00Z",
+    "assignee": "alice",
+    "tags": ["auth", "security"],
+    "userDefinedRank": 9,
+    "description": "Add two-factor authentication for enhanced security of user accounts."
   }
 ]

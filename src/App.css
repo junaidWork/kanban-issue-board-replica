@@ -1,0 +1,10 @@
+.app {
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+/* Dark mode */
+[data-theme='dark'] .app {
+  background: #0a0e1a;
+}
+

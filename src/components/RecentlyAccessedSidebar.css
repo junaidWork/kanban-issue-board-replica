@@ -1,0 +1,108 @@
+.recently-accessed-sidebar {
+  background: #f8fafc;
+  border-left: 1px solid #e2e8f0;
+  padding: 1.5rem;
+  min-width: 280px;
+  max-width: 320px;
+  overflow-y: auto;
+  height: calc(100vh - 60px);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.sidebar-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.sidebar-empty {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.sidebar-empty p {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.recent-issue-card {
+  padding: 0.75rem;
+}
+
+.recent-issue-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.recent-issue-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.sidebar-closing {
+  animation: slideOut 0.3s ease-out forwards;
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Dark mode - Elegant Dark Theme */
+[data-theme='dark'] .recently-accessed-sidebar {
+  background: #0f1419;
+  border-left: 1px solid #2d3548;
+}
+
+[data-theme='dark'] .sidebar-header h3,
+[data-theme='dark'] .recent-issue-title {
+  color: #f0f3f7;
+}
+
+[data-theme='dark'] .sidebar-empty p,
+[data-theme='dark'] .recent-issue-meta {
+  color: #9ca3af;
+}
+

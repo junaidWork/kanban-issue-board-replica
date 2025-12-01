@@ -1,0 +1,278 @@
+.board-page {
+  display: flex;
+  height: calc(100vh - 60px);
+  background: #f4f5f7;
+}
+
+.board-content {
+  flex: 1;
+  padding: 2rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease-out;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.08);
+}
+
+.board-title-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.board-title-section h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #172b4d;
+  margin: 0;
+}
+
+.last-sync {
+  font-size: 0.75rem;
+  color: #5e6c84;
+  padding: 0.25rem 0.625rem;
+  border-radius: 3px;
+  background: #f4f5f7;
+  border: 1px solid #dfe1e6;
+}
+
+.board-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.read-only-badge {
+  background: #fff4e6;
+  color: #974f0c;
+  padding: 0.375rem 0.75rem;
+  border-radius: 3px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.board-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 2rem;
+  overflow-y: auto;
+  flex: 1;
+  padding: 4px;
+}
+
+.board-column {
+  background: #ebecf0;
+  border-radius: 3px;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.15s ease;
+}
+
+.board-column.drag-over {
+  background: #deebff;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 12px 8px 12px;
+  margin-bottom: 0;
+}
+
+.column-header h2 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #5e6c84;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.column-count {
+  background: #dfe1e6;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #5e6c84;
+  min-width: 24px;
+  text-align: center;
+}
+
+.column-content {
+  flex: 1;
+  padding: 0 8px 8px 8px;
+  overflow-y: auto;
+}
+
+.column-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  padding: 1rem;
+}
+
+.column-empty p {
+  color: #8993a4;
+  font-size: 0.8125rem;
+}
+
+.column-footer {
+  text-align: center;
+  padding: 8px 12px;
+  margin-top: 4px;
+  border-top: 1px solid #dfe1e6;
+}
+
+.drag-hint {
+  font-size: 0.6875rem;
+  color: #8993a4;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #dfe1e6;
+  border-top-color: #1d7afc;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-state p {
+  margin-top: 1rem;
+  color: #5e6c84;
+}
+
+.undo-toast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Dark mode - Elegant Dark Theme */
+[data-theme='dark'] .board-page {
+  background: #0f1419;
+}
+
+[data-theme='dark'] .board-content {
+  background: #0f1419;
+}
+
+[data-theme='dark'] .board-header {
+  background: #1a2332;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  border: 1px solid #2d3548;
+}
+
+[data-theme='dark'] .board-title-section h1 {
+  color: #f0f3f7;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .last-sync {
+  background: #151b2e;
+  color: #9ca3af;
+  border: 1px solid #2d3548;
+}
+
+[data-theme='dark'] .read-only-badge {
+  background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+  color: #fbbf24;
+  border: 1px solid #a16207;
+}
+
+[data-theme='dark'] .board-column {
+  background: #1a2332;
+  border: 1px solid #2d3548;
+}
+
+[data-theme='dark'] .board-column.drag-over {
+  background: #1e3a5f;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+[data-theme='dark'] .column-header h2 {
+  color: #9ca3af;
+}
+
+[data-theme='dark'] .column-count {
+  background: #2d3548;
+  color: #9ca3af;
+  border: 1px solid #3d4a66;
+}
+
+[data-theme='dark'] .column-empty p {
+  color: #6b7280;
+}
+
+[data-theme='dark'] .column-footer {
+  border-top: 1px solid #2d3548;
+}
+
+[data-theme='dark'] .spinner {
+  border-color: #2d3548;
+  border-top-color: #3b82f6;
+}
+
+[data-theme='dark'] .loading-state p {
+  color: #9ca3af;
+}
+
+@media (max-width: 1024px) {
+  .board-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .board-column {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .board-page {
+    flex-direction: column;
+  }
+
+  .board-content {
+    padding: 1rem;
+  }
+
+  .board-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,63 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.input-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.input {
+  padding: 0.625rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #1d7afc;
+  box-shadow: 0 0 0 3px rgba(29, 122, 252, 0.1);
+}
+
+.input-error {
+  border-color: #ef4444;
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.input-error-text {
+  font-size: 0.75rem;
+  color: #ef4444;
+}
+
+/* Dark mode - Elegant Dark Theme */
+[data-theme='dark'] .input-label {
+  color: #e4e7eb;
+}
+
+[data-theme='dark'] .input {
+  background: #1a2332;
+  border: 1px solid #2d3548;
+  color: #e4e7eb;
+}
+
+[data-theme='dark'] .input::placeholder {
+  color: #6b7280;
+}
+
+[data-theme='dark'] .input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  background: #1f2937;
+}
+

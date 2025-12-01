@@ -1,0 +1,126 @@
+.not-found-page {
+  min-height: calc(100vh - 60px);
+  background: #f4f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.not-found-content {
+  text-align: center;
+  max-width: 500px;
+}
+
+.not-found-illustration {
+  position: relative;
+  margin-bottom: 3rem;
+  display: inline-block;
+}
+
+.error-code {
+  font-size: 8rem;
+  font-weight: 800;
+  color: #1d7afc;
+  line-height: 1;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 4px 12px rgba(29, 122, 252, 0.2);
+}
+
+.error-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, rgba(29, 122, 252, 0.1) 0%, rgba(29, 122, 252, 0.05) 100%);
+  border-radius: 50%;
+  z-index: 1;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.not-found-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #172b4d;
+  margin: 0 0 1rem 0;
+}
+
+.not-found-description {
+  font-size: 1rem;
+  color: #5e6c84;
+  margin: 0 0 2.5rem 0;
+  line-height: 1.6;
+}
+
+.not-found-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Dark Mode - Elegant Dark Theme */
+[data-theme='dark'] .not-found-page {
+  background: #0a0e1a;
+}
+
+[data-theme='dark'] .not-found-title {
+  color: #f0f3f7;
+}
+
+[data-theme='dark'] .not-found-description {
+  color: #9ca3af;
+}
+
+[data-theme='dark'] .error-code {
+  color: #3b82f6;
+  text-shadow: 0 4px 20px rgba(59, 130, 246, 0.5);
+}
+
+[data-theme='dark'] .error-circle {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%);
+}
+
+@media (max-width: 768px) {
+  .not-found-page {
+    padding: 1rem;
+  }
+
+  .error-code {
+    font-size: 6rem;
+  }
+
+  .error-circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .not-found-title {
+    font-size: 1.5rem;
+  }
+
+  .not-found-actions {
+    flex-direction: column;
+  }
+
+  .not-found-actions button {
+    width: 100%;
+  }
+}
